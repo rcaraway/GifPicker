@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		A932BEF11FEBEC2D008CE1D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BEF01FEBEC2D008CE1D4 /* AppDelegate.swift */; };
-		A932BEF31FEBEC2D008CE1D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BEF21FEBEC2D008CE1D4 /* ViewController.swift */; };
+		A932BEF31FEBEC2D008CE1D4 /* GifPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BEF21FEBEC2D008CE1D4 /* GifPickerViewController.swift */; };
 		A932BEF61FEBEC2D008CE1D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A932BEF41FEBEC2D008CE1D4 /* Main.storyboard */; };
 		A932BEF81FEBEC2D008CE1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A932BEF71FEBEC2D008CE1D4 /* Assets.xcassets */; };
 		A932BEFB1FEBEC2D008CE1D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A932BEF91FEBEC2D008CE1D4 /* LaunchScreen.storyboard */; };
+		A932BF041FEBF117008CE1D4 /* GifAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BF031FEBF117008CE1D4 /* GifAsset.swift */; };
+		A932BF071FEBFBA5008CE1D4 /* PickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BF061FEBFBA5008CE1D4 /* PickerCollectionView.swift */; };
+		A932BF091FEC03F6008CE1D4 /* GifTrendingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932BF081FEC03F6008CE1D4 /* GifTrendingTask.swift */; };
+		A96776471FEC5944000F0B3D /* GifConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96776461FEC5944000F0B3D /* GifConfig.swift */; };
+		A96776491FEC5C04000F0B3D /* GifSessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96776481FEC5C04000F0B3D /* GifSessionTask.swift */; };
+		A967764B1FEC6074000F0B3D /* GifSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967764A1FEC6074000F0B3D /* GifSession.swift */; };
+		A9D937841FED3A1E00BC5656 /* GifRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D937831FED3A1E00BC5656 /* GifRequest.swift */; };
+		A9D937861FED3E3600BC5656 /* GifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D937851FED3E3600BC5656 /* GifManager.swift */; };
+		A9D937881FED447C00BC5656 /* GifNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D937871FED447C00BC5656 /* GifNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A932BEED1FEBEC2D008CE1D4 /* GifPicker ViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GifPicker ViewController.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A932BEED1FEBEC2D008CE1D4 /* GifPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A932BEF01FEBEC2D008CE1D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A932BEF21FEBEC2D008CE1D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A932BEF21FEBEC2D008CE1D4 /* GifPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPickerViewController.swift; sourceTree = "<group>"; };
 		A932BEF51FEBEC2D008CE1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A932BEF71FEBEC2D008CE1D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A932BEFA1FEBEC2D008CE1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A932BEFC1FEBEC2D008CE1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A932BF031FEBF117008CE1D4 /* GifAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifAsset.swift; sourceTree = "<group>"; };
+		A932BF061FEBFBA5008CE1D4 /* PickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionView.swift; sourceTree = "<group>"; };
+		A932BF081FEC03F6008CE1D4 /* GifTrendingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTrendingTask.swift; sourceTree = "<group>"; };
+		A96776461FEC5944000F0B3D /* GifConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifConfig.swift; sourceTree = "<group>"; };
+		A96776481FEC5C04000F0B3D /* GifSessionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifSessionTask.swift; sourceTree = "<group>"; };
+		A967764A1FEC6074000F0B3D /* GifSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifSession.swift; sourceTree = "<group>"; };
+		A9D937831FED3A1E00BC5656 /* GifRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifRequest.swift; sourceTree = "<group>"; };
+		A9D937851FED3E3600BC5656 /* GifManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifManager.swift; sourceTree = "<group>"; };
+		A9D937871FED447C00BC5656 /* GifNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +56,7 @@
 		A932BEE41FEBEC2D008CE1D4 = {
 			isa = PBXGroup;
 			children = (
-				A932BEEF1FEBEC2D008CE1D4 /* GifPicker ViewController */,
+				A932BEEF1FEBEC2D008CE1D4 /* GifPicker */,
 				A932BEEE1FEBEC2D008CE1D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +64,55 @@
 		A932BEEE1FEBEC2D008CE1D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A932BEED1FEBEC2D008CE1D4 /* GifPicker ViewController.app */,
+				A932BEED1FEBEC2D008CE1D4 /* GifPicker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A932BEEF1FEBEC2D008CE1D4 /* GifPicker ViewController */ = {
+		A932BEEF1FEBEC2D008CE1D4 /* GifPicker */ = {
 			isa = PBXGroup;
 			children = (
+				A932BF051FEBFB24008CE1D4 /* Loading GIFs */,
+				A932BF021FEBF0FA008CE1D4 /* Model */,
 				A932BEF01FEBEC2D008CE1D4 /* AppDelegate.swift */,
-				A932BEF21FEBEC2D008CE1D4 /* ViewController.swift */,
+				A932BEF21FEBEC2D008CE1D4 /* GifPickerViewController.swift */,
 				A932BEF41FEBEC2D008CE1D4 /* Main.storyboard */,
 				A932BEF71FEBEC2D008CE1D4 /* Assets.xcassets */,
 				A932BEF91FEBEC2D008CE1D4 /* LaunchScreen.storyboard */,
 				A932BEFC1FEBEC2D008CE1D4 /* Info.plist */,
 			);
-			path = "GifPicker ViewController";
+			path = GifPicker;
+			sourceTree = "<group>";
+		};
+		A932BF021FEBF0FA008CE1D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A932BF031FEBF117008CE1D4 /* GifAsset.swift */,
+				A96776461FEC5944000F0B3D /* GifConfig.swift */,
+				A96776481FEC5C04000F0B3D /* GifSessionTask.swift */,
+				A967764A1FEC6074000F0B3D /* GifSession.swift */,
+				A9D937831FED3A1E00BC5656 /* GifRequest.swift */,
+				A9D937851FED3E3600BC5656 /* GifManager.swift */,
+				A9D937871FED447C00BC5656 /* GifNetworking.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A932BF051FEBFB24008CE1D4 /* Loading GIFs */ = {
+			isa = PBXGroup;
+			children = (
+				A932BF061FEBFBA5008CE1D4 /* PickerCollectionView.swift */,
+				A932BF081FEC03F6008CE1D4 /* GifTrendingTask.swift */,
+			);
+			path = "Loading GIFs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A932BEEC1FEBEC2D008CE1D4 /* GifPicker ViewController */ = {
+		A932BEEC1FEBEC2D008CE1D4 /* GifPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A932BEFF1FEBEC2D008CE1D4 /* Build configuration list for PBXNativeTarget "GifPicker ViewController" */;
+			buildConfigurationList = A932BEFF1FEBEC2D008CE1D4 /* Build configuration list for PBXNativeTarget "GifPicker" */;
 			buildPhases = (
 				A932BEE91FEBEC2D008CE1D4 /* Sources */,
 				A932BEEA1FEBEC2D008CE1D4 /* Frameworks */,
@@ -79,9 +122,9 @@
 			);
 			dependencies = (
 			);
-			name = "GifPicker ViewController";
+			name = GifPicker;
 			productName = "GifPicker ViewController";
-			productReference = A932BEED1FEBEC2D008CE1D4 /* GifPicker ViewController.app */;
+			productReference = A932BEED1FEBEC2D008CE1D4 /* GifPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A932BEE81FEBEC2D008CE1D4 /* Build configuration list for PBXProject "GifPicker ViewController" */;
+			buildConfigurationList = A932BEE81FEBEC2D008CE1D4 /* Build configuration list for PBXProject "GifPicker" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A932BEEC1FEBEC2D008CE1D4 /* GifPicker ViewController */,
+				A932BEEC1FEBEC2D008CE1D4 /* GifPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -136,8 +179,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A932BEF31FEBEC2D008CE1D4 /* ViewController.swift in Sources */,
+				A932BEF31FEBEC2D008CE1D4 /* GifPickerViewController.swift in Sources */,
+				A932BF091FEC03F6008CE1D4 /* GifTrendingTask.swift in Sources */,
 				A932BEF11FEBEC2D008CE1D4 /* AppDelegate.swift in Sources */,
+				A9D937881FED447C00BC5656 /* GifNetworking.swift in Sources */,
+				A932BF071FEBFBA5008CE1D4 /* PickerCollectionView.swift in Sources */,
+				A9D937841FED3A1E00BC5656 /* GifRequest.swift in Sources */,
+				A96776491FEC5C04000F0B3D /* GifSessionTask.swift in Sources */,
+				A967764B1FEC6074000F0B3D /* GifSession.swift in Sources */,
+				A96776471FEC5944000F0B3D /* GifConfig.swift in Sources */,
+				A9D937861FED3E3600BC5656 /* GifManager.swift in Sources */,
+				A932BF041FEBF117008CE1D4 /* GifAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +330,7 @@
 				DEVELOPMENT_TEAM = J546F75L53;
 				INFOPLIST_FILE = "GifPicker ViewController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "RC.GifPicker-ViewController";
+				PRODUCT_BUNDLE_IDENTIFIER = RC.GifPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,7 +345,7 @@
 				DEVELOPMENT_TEAM = J546F75L53;
 				INFOPLIST_FILE = "GifPicker ViewController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "RC.GifPicker-ViewController";
+				PRODUCT_BUNDLE_IDENTIFIER = RC.GifPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,7 +355,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A932BEE81FEBEC2D008CE1D4 /* Build configuration list for PBXProject "GifPicker ViewController" */ = {
+		A932BEE81FEBEC2D008CE1D4 /* Build configuration list for PBXProject "GifPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A932BEFD1FEBEC2D008CE1D4 /* Debug */,
@@ -312,7 +364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A932BEFF1FEBEC2D008CE1D4 /* Build configuration list for PBXNativeTarget "GifPicker ViewController" */ = {
+		A932BEFF1FEBEC2D008CE1D4 /* Build configuration list for PBXNativeTarget "GifPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A932BF001FEBEC2D008CE1D4 /* Debug */,

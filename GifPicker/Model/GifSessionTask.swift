@@ -45,7 +45,7 @@ public struct GifSessionTask {
     
     private func gifAssetFromJSON(jsonDict:[String:Any]) -> GifAsset {
         let imageInfo:[String:Any] = jsonDict["images"] as! [String:Any]
-        let fixedWidth:[String:String] = imageInfo["fixedWidth"] as! [String:String]
+        let fixedWidth:[String:String] = imageInfo["fixed_width"] as! [String:String]
         let original:[String:String] = imageInfo["original"] as! [String:String]
         guard let originalURL:URL = URL(string: original["url"]!) else {
             fatalError("URL of Original GIF was not valid")

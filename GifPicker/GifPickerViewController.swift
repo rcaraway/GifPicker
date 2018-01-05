@@ -63,7 +63,15 @@ extension UIActivityIndicatorView:IndicatorView {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(red: 0.9229, green: 0.9229, blue: 0.9229, alpha: 1.0)
-        // Do any additional setup after loading the view, typically from a nib.
+        GifManager.sharedManager.searchGifs(search: "taggert") {
+            print("running next page")
+            GifManager.sharedManager.searchNextPage(completion: { (exausted) in
+                print(GifManager.sharedManager.searchGifs)
+                print("EXAUHSTED?")
+                print(exausted)
+            })
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

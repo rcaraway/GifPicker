@@ -10,14 +10,19 @@
 import Foundation
 
 public class GifSearchSession {
+    
     //current page
     public var page:Int = 0 {
         didSet{
             sessionTask.request.offset = sessionTask.request.limit * page
         }
     }
+    
+    
     public private(set) var exhausted:Bool = false
+    
     public private(set) var searchInProgress:Bool = false
+    
     public var sessionTask:GifSessionTask
     
     public init (task:GifSessionTask){

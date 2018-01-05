@@ -29,6 +29,7 @@ open class GifManager: NSObject {
     //Giphy API Key: REQUIRED TO USE THIS API
     public var APIKey:String = "10OaYHtqe2eojm"
     
+    private let queue = DispatchQueue(label:"gifQueue")
     
     public private(set) var searchSession:GifSearchSession?
     
@@ -41,14 +42,14 @@ open class GifManager: NSObject {
     
     
     //MARK: trending
-    public func fetchTrendingGifs(completion:@escaping ()->Void) {
-        DispatchQueue.global().async {
+    public func fetchTrendingGifs(completion:@escaping ([GifAsset])->Void) {
+        queue.async {
             let request:GifRequest = GifRequest(key: self.APIKey, type: .trending)
             let gifTask:GifSessionTask = GifSessionTask(request: request)
             gifTask.executeRequest(completion: { (gifs) in
                 self.trendingGifs = gifs
                 DispatchQueue.main.async {
-                    completion()
+                    completion(self.trendingGifs)
                 }
             })
         }
@@ -57,31 +58,32 @@ open class GifManager: NSObject {
     
     //MARK: search
     public func searchGifs(search:String, completion:@escaping ()->Void) {
-        DispatchQueue.global().async {
+        queue.async {
             var request:GifRequest = GifRequest(key: self.APIKey, type: .search)
             request.searchQuery = search
             let gifTask:GifSessionTask = GifSessionTask(request: request)
             self.resetGifSession(task: gifTask)
-            self.searchSession!.runTask(completion: { (gifs) in
+            self.searchSession?.runTask(completion: { (gifs) in
                 self.searchGifs.append(contentsOf: gifs)
                 completion()
             })
         }
     }
     
-    public func searchNextPage(completion:@escaping ()-> Void) {
+    public func searchNextPage(completion:@escaping (_ exausted:Bool)-> Void) {
         if (searchSession == nil){fatalError("Search Session must exist to search next page")}
+        if searchSession?.exhausted == true {completion(true); return }
         searchSession?.nextPage()
         self.searchSession!.runTask(completion: { (gifs) in
             self.searchGifs.append(contentsOf: gifs)
-            completion()
+            completion((self.searchSession?.exhausted)!)
         })
     }
     
     
     //Helper Function to reset the GifSearchSession on the main thread
     private func resetGifSession(task:GifSessionTask){
-        DispatchQueue.main.async {
+        DispatchQueue.main.sync {
             self.searchGifs.removeAll()
             self.searchSession = GifSearchSession(task: task)
             if (self.searchSession == nil){fatalError("Search Session must be initialized")}

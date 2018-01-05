@@ -27,7 +27,7 @@ open class GifManager: NSObject {
     public private(set) var libraryGifs:[GifAsset] = []
     
     //Giphy API Key: REQUIRED TO USE THIS API
-    public var APIKey:String = "10OaYHtqe2eojm"
+    public var APIKey:String = ""
     
     //Serial queue used to safely call all background GIF activities
     private let queue = DispatchQueue(label:"gifQueue")
@@ -38,7 +38,7 @@ open class GifManager: NSObject {
     
     /* Only one instance of GifManager is allowed to exist to enforce
       strict reference type management */
-    static let sharedManager:GifManager = GifManager()
+    static let shared:GifManager = GifManager()
     private override init() {}
     
     
@@ -83,6 +83,9 @@ open class GifManager: NSObject {
                 self.searchGifs.append(contentsOf: gifs)
                 completion(self.searchGifs)
             })
+        }
+        searchGifs(search: "blah") { (gifs) in
+            
         }
     }
     

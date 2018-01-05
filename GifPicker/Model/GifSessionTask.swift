@@ -12,7 +12,6 @@ public struct GifSessionTask {
     
     var request:GifRequest
     
-    
     /*
      executeRequest
      returns Gifs constructed from the JSON fetched from a valid GifRequest

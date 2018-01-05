@@ -11,8 +11,8 @@ import Photos
 
 
 /*
- GifManager: manages the reference & memory storage of all GIF assets
- and their data.  Class required to manage references.
+ GifManager: use the singleton of this class to manage and retrieve all of your GIFs.
+ Class required to manage references.
  */
 open class GifManager: NSObject {
 
@@ -29,10 +29,11 @@ open class GifManager: NSObject {
     //Giphy API Key: REQUIRED TO USE THIS API
     public var APIKey:String = "10OaYHtqe2eojm"
     
+    //Serial queue used to safely call all background GIF activities
     private let queue = DispatchQueue(label:"gifQueue")
     
+    //Used to manage paging, index, search queries required for searching.
     public private(set) var searchSession:GifSearchSession?
-    
     
     
     /* Only one instance of GifManager is allowed to exist to enforce
@@ -42,7 +43,15 @@ open class GifManager: NSObject {
     
     
     //MARK: trending
+    
+    
+    /*
+        fetchTrendingGifs
+        Access the current most popular Gifs from GIPHYs Library.
+        Great to keep your GIF content fresh.
+     */
     public func fetchTrendingGifs(completion:@escaping ([GifAsset])->Void) {
+        verifyGiphyAPI()
         queue.async {
             let request:GifRequest = GifRequest(key: self.APIKey, type: .trending)
             let gifTask:GifSessionTask = GifSessionTask(request: request)
@@ -57,7 +66,14 @@ open class GifManager: NSObject {
     
     
     //MARK: search
-    public func searchGifs(search:String, completion:@escaping ()->Void) {
+    
+    
+    /*
+        searchGifs
+        Returns every GIF in the Giphy library that is tagged with the search string provided
+     */
+    public func searchGifs(search:String, completion:@escaping ([GifAsset])->Void) {
+       verifyGiphyAPI()
         queue.async {
             var request:GifRequest = GifRequest(key: self.APIKey, type: .search)
             request.searchQuery = search
@@ -65,18 +81,27 @@ open class GifManager: NSObject {
             self.resetGifSession(task: gifTask)
             self.searchSession?.runTask(completion: { (gifs) in
                 self.searchGifs.append(contentsOf: gifs)
-                completion()
+                completion(self.searchGifs)
             })
         }
     }
     
-    public func searchNextPage(completion:@escaping (_ exausted:Bool)-> Void) {
+    /*
+        searchNextPage
+        In the case where Searches have large amount of results,
+        meaning:  totalSearchResults >  searchSession.sessionTask.request.limit
+        the next page of GIFs can be accessed using this method.
+     
+        Once you've run out of GIFS to fetch, exausted will return true
+     */
+    public func searchNextPage(completion:@escaping (_ gifs:[GifAsset], _ exausted:Bool)-> Void) {
+       verifyGiphyAPI()
         if (searchSession == nil){fatalError("Search Session must exist to search next page")}
-        if searchSession?.exhausted == true {completion(true); return }
+        if searchSession?.exhausted == true {completion([], true); return }
         searchSession?.nextPage()
         self.searchSession!.runTask(completion: { (gifs) in
             self.searchGifs.append(contentsOf: gifs)
-            completion((self.searchSession?.exhausted)!)
+            completion(gifs, (self.searchSession?.exhausted)!)
         })
     }
     
@@ -94,6 +119,12 @@ open class GifManager: NSObject {
     //MARK: library
     public func fetchLibraryGifs() {
         
+    }
+    
+    //MARK: convenience
+    
+    private func verifyGiphyAPI(){
+        if (APIKey.count == 0){ fatalError("Giphy API Key required. Contact Giphy for a key")}
     }
     
     

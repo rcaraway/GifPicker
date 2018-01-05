@@ -12,6 +12,11 @@ public struct GifSessionTask {
     
     var request:GifRequest
     
+    
+    /*
+     executeRequest
+     returns Gifs constructed from the JSON fetched from a valid GifRequest
+     */
     public func executeRequest(completion:([GifAsset]) -> Void){
         let query:String = request.queryString()
         fetchJSON(query: query) { (json) in

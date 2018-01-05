@@ -9,6 +9,12 @@
 
 import Foundation
 
+/*
+ GifSearchSession
+ Manages elements and states important to the lifeCycle
+ of fetching Search GIFs
+ */
+
 public class GifSearchSession {
     
     //current page
@@ -18,7 +24,7 @@ public class GifSearchSession {
         }
     }
     
-    
+    //Exhausted being true means there's no GIFs left to fetch for the given search.
     public private(set) var exhausted:Bool = false
     
     public private(set) var searchInProgress:Bool = false

@@ -22,7 +22,7 @@ extension String {
 public struct GifRequest {
     
     //The amount of GIFs per request
-    public var limit:Int = 50
+    public var limit:Int = DEFAULT_PAGE_SIZE
     
     //The amount of GIFs to skip over during the request
     public var offset:Int = 0
@@ -35,7 +35,7 @@ public struct GifRequest {
     public var searchQuery:String = ""
     
 
-    fileprivate let giphySource: String = "https://api.giphy.com/v1/gifs/"
+    fileprivate let giphySource: String = GIPHY_BASE_URL_STRING
 
     /* queryString() - Constructs a web-safe query string based on the parameters set. Calls to the Giphy API for searches and trending gifs
      */

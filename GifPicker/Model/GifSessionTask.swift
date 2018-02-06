@@ -10,7 +10,12 @@ import UIKit
 
 public struct GifSessionTask {
     
-    var request:GifRequest
+    public var request:GifRequest
+    
+    public init(request: GifRequest) {
+        self.request = request
+    }
+    
     
     /*
      executeRequest

@@ -27,7 +27,7 @@ open class GifManager: NSObject {
     public private(set) var libraryGifs:[GifAsset] = []
     
     //Giphy API Key: REQUIRED TO USE THIS API
-    public var APIKey:String = ""
+    public var APIKey:String = API_KEY
     
     //Serial queue used to safely call all background GIF activities
     private let queue = DispatchQueue(label:"gifQueue")
@@ -38,12 +38,11 @@ open class GifManager: NSObject {
     
     /* Only one instance of GifManager is allowed to exist to enforce
       strict reference type management */
-    static let shared:GifManager = GifManager()
+    public static let shared:GifManager = GifManager()
     private override init() {}
     
     
     //MARK: trending
-    
     
     /*
         fetchTrendingGifs
@@ -66,8 +65,6 @@ open class GifManager: NSObject {
     
     
     //MARK: search
-    
-    
     /*
         searchGifs
         Returns every GIF in the Giphy library that is tagged with the search string provided
@@ -75,17 +72,17 @@ open class GifManager: NSObject {
     public func searchGifs(search:String, completion:@escaping ([GifAsset])->Void) {
        verifyGiphyAPI()
         queue.async {
+            if let session = self.searchSession {
+                if (session.searchInProgress == true ){completion([]); return}
+            }
             var request:GifRequest = GifRequest(key: self.APIKey, type: .search)
             request.searchQuery = search
             let gifTask:GifSessionTask = GifSessionTask(request: request)
             self.resetGifSession(task: gifTask)
             self.searchSession?.runTask(completion: { (gifs) in
-                self.searchGifs.append(contentsOf: gifs)
+                self.searchGifs = gifs
                 completion(self.searchGifs)
             })
-        }
-        searchGifs(search: "blah") { (gifs) in
-            
         }
     }
     
@@ -99,10 +96,13 @@ open class GifManager: NSObject {
      */
     public func searchNextPage(completion:@escaping (_ gifs:[GifAsset], _ exausted:Bool)-> Void) {
        verifyGiphyAPI()
-        if (searchSession == nil){fatalError("Search Session must exist to search next page")}
-        if searchSession?.exhausted == true {completion([], true); return }
-        searchSession?.nextPage()
-        self.searchSession!.runTask(completion: { (gifs) in
+        guard let session = searchSession else {
+            fatalError("Search Session must exist to search next page")
+        }
+        if (session.exhausted == true || session.searchInProgress == true ) {completion([], true); return }
+        session.nextPage()
+        assert(session === searchSession, "Session did not reset as planned")
+        session.runTask(completion: { (gifs) in
             self.searchGifs.append(contentsOf: gifs)
             completion(gifs, (self.searchSession?.exhausted)!)
         })

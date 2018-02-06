@@ -8,5 +8,5 @@
 
 
 public let DEFAULT_PAGE_SIZE = 50
-public let API_KEY = "10OaYHtqe2eojm"
+public let API_KEY = ""
 public let GIPHY_BASE_URL_STRING: String = "https://api.giphy.com/v1/gifs/"
